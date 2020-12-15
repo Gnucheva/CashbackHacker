@@ -9,9 +9,9 @@ public class CashbackHackServiceTest {
 
     @Test
     public void shouldCalculateIfAmountCorrect() {
-        int amount = 450;
+        int amount = 5700;
         int actual = service.remain(amount);
-        int expected = 550;
+        int expected = 300;
         assertEquals(actual, expected);
     }
 
@@ -24,12 +24,18 @@ public class CashbackHackServiceTest {
     }
 
     @Test
-    public void shouldCalculateIfAmountOver1000() {
-        int amount = 1005;
-
+    public void shouldCalculateIfAmount1000() {
+        int amount = 1000;
         int actual = service.remain(amount);
-        int expected = 995;
+        int expected = 0;
+        assertEquals(actual, expected);
+    }
 
+    @Test
+    public void shouldCalculateIfAmountIncorrect() {
+        int amount = -50000;
+        int actual = service.remain(amount);
+        int expected = 0;
         assertEquals(actual, expected);
     }
 
